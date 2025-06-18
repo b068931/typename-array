@@ -2,20 +2,20 @@
 #include "./typename-array-headers/include-all-namespace.h"
 
 int main() {
-    //int val = typename_array::static_calculator<
-    //    typename_array::value_wrapper<'('>,
-    //    typename_array::value_wrapper<'1'>,
-    //    typename_array::value_wrapper<'1'>,
-    //    typename_array::value_wrapper<'+'>,
-    //    typename_array::value_wrapper<'2'>,
-    //    typename_array::value_wrapper<')'>,
-    //    typename_array::value_wrapper<'*'>,
-    //    typename_array::value_wrapper<'('>,
-    //    typename_array::value_wrapper<'2'>,
-    //    typename_array::value_wrapper<'+'>,
-    //    typename_array::value_wrapper<'2'>,
-    //    typename_array::value_wrapper<')'>
-    //>::result;
+    int val = typename_array::static_calculator<
+        typename_array::value_wrapper<'('>,
+        typename_array::value_wrapper<'1'>,
+        typename_array::value_wrapper<'1'>,
+        typename_array::value_wrapper<'+'>,
+        typename_array::value_wrapper<'2'>,
+        typename_array::value_wrapper<')'>,
+        typename_array::value_wrapper<'*'>,
+        typename_array::value_wrapper<'('>,
+        typename_array::value_wrapper<'2'>,
+        typename_array::value_wrapper<'+'>,
+        typename_array::value_wrapper<'2'>,
+        typename_array::value_wrapper<')'>
+    >::result;
 
     //int val = typename_array::static_calc <
  //       typename_array::value<'('>,
@@ -27,5 +27,5 @@ int main() {
     //	typename_array::value<'3'>
     //>::result;
 
-    std::cout << typename_array::int_to_symbols<523>::array::template acquire<typename_array::symbols_to_int>::result << std::endl;
+    std::cout << val << std::endl;
 }

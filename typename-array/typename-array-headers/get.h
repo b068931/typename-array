@@ -20,6 +20,7 @@ private:
 	};
 
 public:
+    static_assert(index < array::size, "Index out of bounds in typename_array::get.");
 	using value = typename get_helper<index, array>::value;
 };
 
