@@ -8,7 +8,7 @@
 /// </summary>
 /// <typeparam name="array">The source typename array containing types to transform.</typeparam>
 /// <typeparam name="funct">A template that transforms each type, receiving the type and its index. Must define ::new_type.</typeparam>
-template<typename array, template<typename, typename_array_size_t> class funct>
+template<typename array, template<typename, typename_array_size_type> class funct>
 struct apply {
 private:
     /// <summary>
@@ -17,7 +17,7 @@ private:
     /// <typeparam name="helper_array">The array or remaining portion being processed.</typeparam>
     /// <typeparam name="helper_funct">The transformation function template.</typeparam>
     /// <typeparam name="index">Current position in the array being processed.</typeparam>
-    template<typename helper_array, template<typename, typename_array_size_t> class helper_funct, typename_array_size_t index>
+    template<typename helper_array, template<typename, typename_array_size_type> class helper_funct, typename_array_size_type index>
     struct apply_helper;
 
     /// <summary>
@@ -27,7 +27,7 @@ private:
     /// <typeparam name="value">The type of the last element.</typeparam>
     /// <typeparam name="helper_funct">The transformation function template.</typeparam>
     /// <typeparam name="index">Current position in the array being processed.</typeparam>
-    template<template<typename> class templ, typename value, template<typename, typename_array_size_t> class helper_funct, typename_array_size_t index>
+    template<template<typename> class templ, typename value, template<typename, typename_array_size_type> class helper_funct, typename_array_size_type index>
     struct apply_helper<templ<value>, helper_funct, index> {
         /// <summary>
         /// The resulting array with a single transformed type.
@@ -44,7 +44,7 @@ private:
     /// <typeparam name="value">The current type being processed.</typeparam>
     /// <typeparam name="helper_funct">The transformation function template.</typeparam>
     /// <typeparam name="index">Current position in the array being processed.</typeparam>
-    template<template<typename, typename...> class templ, typename... other, typename value, template<typename, typename_array_size_t> class helper_funct, typename_array_size_t index>
+    template<template<typename, typename...> class templ, typename... other, typename value, template<typename, typename_array_size_type> class helper_funct, typename_array_size_type index>
     struct apply_helper<templ<value, other...>, helper_funct, index> {
         /// <summary>
         /// The array resulting from combining the transformed current element with

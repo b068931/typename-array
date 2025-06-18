@@ -147,13 +147,13 @@
     <ClInclude Include="typename-array-headers\replace-part.h" />
     <ClInclude Include="typename-array-headers\replace.h" />
     <ClInclude Include="typename-array-headers\sort.h" />
-    <ClInclude Include="typename-array-headers\static-calc.h" />
+    <ClInclude Include="typename-array-headers\static-calculator.h" />
     <ClInclude Include="typename-array-headers\static-pow.h" />
     <ClInclude Include="typename-array-headers\sum.h" />
     <ClInclude Include="typename-array-headers\symbols-to-int.h" />
     <ClInclude Include="typename-array-headers\typename-binder.h" />
     <ClInclude Include="typename-array-headers\unique-add.h" />
-    <ClInclude Include="typename-array-headers\value.h" />
+    <ClInclude Include="typename-array-headers\value_wrapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

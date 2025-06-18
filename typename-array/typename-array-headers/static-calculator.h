@@ -2,7 +2,7 @@
 #define TYPENAME_ARRAY_STATIC_CALC_H
 
 #include "base.h"
-#include "value.h"
+#include "value_wrapper.h"
 #include "cut.h"
 #include "find-one-of.h"
 #include "left-to-right.h"
@@ -19,17 +19,17 @@
 /// </summary>
 /// <typeparam name="symbols">A sequence of value types representing the characters in the expression.</typeparam>
 template<typename... symbols>
-struct static_calc {
+struct static_calculator {
 private:
     /// <summary>
     /// Array of recognized operators and parentheses that can appear in expressions.
     /// </summary>
-    using expressions_symbols = typename_array<value<'('>, value<'%'>, value<'/'>, value<'*'>, value<'+'>, value<'-'>, value<')'>>;
+    using expressions_symbols = typename_array<value_wrapper<'('>, value_wrapper<'%'>, value_wrapper<'/'>, value_wrapper<'*'>, value_wrapper<'+'>, value_wrapper<'-'>, value_wrapper<')'>>;
     
     /// <summary>
     /// Enumeration of expression types to differentiate between regular expressions and parenthesized expressions.
     /// </summary>
-    enum class expr_type {
+    enum class expression_type {
         regular_expression,
         parentheses
     };
@@ -39,7 +39,7 @@ private:
     /// </summary>
     /// <typeparam name="array">The array containing the expression.</typeparam>
     /// <typeparam name="start_index">The index of the opening parenthesis.</typeparam>
-    template<typename array, typename_array_size_t start_index>
+    template<typename array, typename_array_size_type start_index>
     struct find_last_closed_parentheses {
     private:
         /// <summary>
@@ -48,24 +48,24 @@ private:
         /// <typeparam name="helper_array">The remaining portion of the array being processed.</typeparam>
         /// <typeparam name="parentheses_count">Current nesting level of parentheses.</typeparam>
         /// <typeparam name="index">Current position being examined.</typeparam>
-        template<typename helper_array, typename_array_size_t parentheses_count, typename_array_size_t index>
+        template<typename helper_array, typename_array_size_type parentheses_count, typename_array_size_type index>
         struct find_last_closed_parentheses_helper {
             /// <summary>
             /// The index where the search terminates.
             /// </summary>
-            static constexpr typename_array_size_t indx = index;
+            static constexpr typename_array_size_type indx = index;
         };
 
         /// <summary>
         /// Recursive helper that processes each character and tracks parenthesis nesting.
         /// </summary>
-        template<template<typename, typename...> class templ, typename... other, typename_array_size_t parentheses_count, typename_array_size_t index, char character>
-        struct find_last_closed_parentheses_helper<templ<value<character>, other...>, parentheses_count, index> {
+        template<template<typename, typename...> class templ, typename... other, typename_array_size_type parentheses_count, typename_array_size_type index, char character>
+        struct find_last_closed_parentheses_helper<templ<value_wrapper<character>, other...>, parentheses_count, index> {
             /// <summary>
             /// Updates the parentheses count based on encountered parentheses.
             /// Increments for '(', decrements for ')', otherwise no change.
             /// </summary>
-            static constexpr typename_array_size_t parentheses_count_new = 
+            static constexpr typename_array_size_type parentheses_count_new = 
                 (character == '(')
                     ? (parentheses_count + 1)
                     : (character == ')') ? (parentheses_count - 1) : parentheses_count;
@@ -74,14 +74,14 @@ private:
             /// The index of the matching closing parenthesis, or continues the search.
             /// Returns the current index if parentheses_count becomes zero (matching parenthesis found).
             /// </summary>
-            static constexpr typename_array_size_t indx = (parentheses_count == 0) ? index : find_last_closed_parentheses_helper<templ<other...>, parentheses_count_new, (index + 1)>::indx;
+            static constexpr typename_array_size_type indx = (parentheses_count == 0) ? index : find_last_closed_parentheses_helper<templ<other...>, parentheses_count_new, (index + 1)>::indx;
         };
 
     public:
         /// <summary>
         /// The index of the closing parenthesis that matches the opening parenthesis at start_index.
         /// </summary>
-        static constexpr typename_array_size_t index = find_last_closed_parentheses_helper<array, 1, start_index>::indx;
+        static constexpr typename_array_size_type index = find_last_closed_parentheses_helper<array, 1, start_index>::indx;
     };
 
     /// <summary>
@@ -91,7 +91,7 @@ private:
     /// <typeparam name="sym">The operator character.</typeparam>
     /// <typeparam name="array">The array containing the expression.</typeparam>
     /// <typeparam name="index">The index of the operator.</typeparam>
-    template<char sym, typename array, typename_array_size_t index>
+    template<char sym, typename array, typename_array_size_type index>
     struct find_boundaries {
         /// <summary>
         /// The right half of the expression after the operator.
@@ -101,7 +101,7 @@ private:
         /// <summary>
         /// The index of the next operator in the right half, or -1 if none exists.
         /// </summary>
-        static constexpr typename_array_size_t right_half_end = find_one_of<right_half_of_expression, expressions_symbols>::index;
+        static constexpr typename_array_size_type right_half_end = find_one_of<right_half_of_expression, expressions_symbols>::index;
         
         /// <summary>
         /// Type representing the true end index of the right operand.
@@ -109,13 +109,13 @@ private:
         /// </summary>
         using true_right_half_end_type =
         std::conditional_t<(right_half_end == -1),
-                         value<(array::size - 1)>,
-                         value<(index + right_half_end)>>;
+                         value_wrapper<(array::size - 1)>,
+                         value_wrapper<(index + right_half_end)>>;
                          
         /// <summary>
         /// The end index of the right operand.
         /// </summary>
-        static constexpr typename_array_size_t true_right_half_end = true_right_half_end_type::get_value;
+        static constexpr typename_array_size_type true_right_half_end = true_right_half_end_type::get_value;
 
         /// <summary>
         /// The left half of the expression before the operator, reversed for search.
@@ -125,7 +125,7 @@ private:
         /// <summary>
         /// The index of the previous operator in the left half, or -1 if none exists.
         /// </summary>
-        static constexpr typename_array_size_t left_half_end = find_one_of<left_half_of_expression, expressions_symbols>::index;
+        static constexpr typename_array_size_type left_half_end = find_one_of<left_half_of_expression, expressions_symbols>::index;
         
         /// <summary>
         /// Type representing the true start index of the left operand.
@@ -133,23 +133,23 @@ private:
         /// </summary>
         using true_left_half_end_type =
         std::conditional_t<(left_half_end == -1),
-                         value<static_cast<typename_array_size_t>(0)>,
-                         value<index - left_half_end>>;
+                         value_wrapper<static_cast<typename_array_size_type>(0)>,
+                         value_wrapper<index - left_half_end>>;
                          
         /// <summary>
         /// The start index of the left operand.
         /// </summary>
-        static constexpr typename_array_size_t true_left_half_end = true_left_half_end_type::get_value;
+        static constexpr typename_array_size_type true_left_half_end = true_left_half_end_type::get_value;
 
         /// <summary>
         /// Array containing information about the expression boundaries:
         /// [expression type, left boundary, right boundary, operator index]
         /// </summary>
         using expression_boundaries = typename_array<
-            value<expr_type::regular_expression>,
-            value<true_left_half_end>,
-            value<true_right_half_end>,
-            value<index>>;
+            value_wrapper<expression_type::regular_expression>,
+            value_wrapper<true_left_half_end>,
+            value_wrapper<true_right_half_end>,
+            value_wrapper<index>>;
     };
 
     /// <summary>
@@ -157,7 +157,7 @@ private:
     /// </summary>
     /// <typeparam name="array">The array containing the expression.</typeparam>
     /// <typeparam name="index">The index of the opening parenthesis.</typeparam>
-    template<typename array, typename_array_size_t index>
+    template<typename array, typename_array_size_type index>
     struct find_boundaries<'(', array, index> {
         /// <summary>
         /// The right half of the expression after the opening parenthesis.
@@ -167,17 +167,17 @@ private:
         /// <summary>
         /// The index of the matching closing parenthesis.
         /// </summary>
-        static constexpr typename_array_size_t last_closed_parentheses = find_last_closed_parentheses<right_half_of_expression, index>::index;
+        static constexpr typename_array_size_type last_closed_parentheses = find_last_closed_parentheses<right_half_of_expression, index>::index;
 
         /// <summary>
         /// Array containing information about the parenthesized expression boundaries:
         /// [expression type, opening parenthesis index, closing parenthesis index, opening parenthesis index]
         /// </summary>
         using expression_boundaries = typename_array<
-            value<expr_type::parentheses>,
-            value<index>,
-            value<last_closed_parentheses>,
-            value<index>>;
+            value_wrapper<expression_type::parentheses>,
+            value_wrapper<index>,
+            value_wrapper<last_closed_parentheses>,
+            value_wrapper<index>>;
     };
 
     /// <summary>
@@ -189,7 +189,7 @@ private:
         /// <summary>
         /// The index of the highest priority operator in the expression.
         /// </summary>
-        static constexpr typename_array_size_t highest_priority_symbol = find_priority<typename_array<helper_symbols...>, expressions_symbols>::index;
+        static constexpr typename_array_size_type highest_priority_symbol = find_priority<typename_array<helper_symbols...>, expressions_symbols>::index;
 
         /// <summary>
         /// The type of the highest priority operator.
@@ -209,7 +209,7 @@ private:
     /// <typeparam name="ex_type">The type of the expression (regular or parenthesized).</typeparam>
     /// <typeparam name="simple_expression_info">Information about the expression boundaries.</typeparam>
     /// <typeparam name="array">The array containing the expression.</typeparam>
-    template<expr_type ex_type, typename simple_expression_info, typename array>
+    template<expression_type ex_type, typename simple_expression_info, typename array>
     struct calculate_simple_expression {
     private:
         /// <summary>
@@ -229,7 +229,7 @@ private:
             /// <summary>
             /// The result of the modulo operation.
             /// </summary>
-            static constexpr typename_array_size_t value = left_part::template acquire<symbols_to_int>::value % right_part::template acquire<symbols_to_int>::value;
+            static constexpr typename_array_size_type value = left_part::template acquire<symbols_to_int>::result % right_part::template acquire<symbols_to_int>::result;
         };
 
         /// <summary>
@@ -240,7 +240,7 @@ private:
             /// <summary>
             /// The result of the multiplication operation.
             /// </summary>
-            static constexpr typename_array_size_t value = left_part::template acquire<symbols_to_int>::value * right_part::template acquire<symbols_to_int>::value;
+            static constexpr typename_array_size_type value = left_part::template acquire<symbols_to_int>::result * right_part::template acquire<symbols_to_int>::result;
         };
 
         /// <summary>
@@ -251,7 +251,7 @@ private:
             /// <summary>
             /// The result of the division operation.
             /// </summary>
-            static constexpr typename_array_size_t value = left_part::template acquire<symbols_to_int>::value / right_part::template acquire<symbols_to_int>::value;
+            static constexpr typename_array_size_type value = left_part::template acquire<symbols_to_int>::result / right_part::template acquire<symbols_to_int>::result;
         };
 
         /// <summary>
@@ -262,7 +262,7 @@ private:
             /// <summary>
             /// The result of the addition operation.
             /// </summary>
-            static constexpr typename_array_size_t value = left_part::template acquire<symbols_to_int>::value + right_part::template acquire<symbols_to_int>::value;
+            static constexpr typename_array_size_type value = left_part::template acquire<symbols_to_int>::result + right_part::template acquire<symbols_to_int>::result;
         };
 
         /// <summary>
@@ -273,7 +273,7 @@ private:
             /// <summary>
             /// The result of the subtraction operation.
             /// </summary>
-            static constexpr typename_array_size_t value = left_part::template acquire<symbols_to_int>::value - right_part::template acquire<symbols_to_int>::value;
+            static constexpr typename_array_size_type value = left_part::template acquire<symbols_to_int>::result - right_part::template acquire<symbols_to_int>::result;
         };
 
     public:
@@ -313,7 +313,7 @@ private:
     /// <typeparam name="is_changeable">Flag indicating if the expression still contains operators.</typeparam>
     /// <typeparam name="helper_symbols">The symbols in the expression.</typeparam>
     template<typename is_changeable, typename... helper_symbols>
-    struct static_calc_helper {
+    struct static_calculator_helper {
         /// <summary>
         /// The current expression as an array.
         /// </summary>
@@ -352,12 +352,12 @@ private:
         /// <summary>
         /// Binder for continuing recursion if operators remain.
         /// </summary>
-        using binder = typename_binder<static_calc_helper, value<(find_one_of<new_array, expressions_symbols>::index != -1)>>;
+        using binder = typename_binder<static_calculator_helper, value_wrapper<(find_one_of<new_array, expressions_symbols>::index != -1)>>;
         
         /// <summary>
         /// The value of the expression after recursive evaluation.
         /// </summary>
-        static constexpr typename_array_size_t value = new_array::template acquire<binder::template bind>::value;
+        static constexpr typename_array_size_type value = new_array::template acquire<binder::template bind>::value;
     };
 
     /// <summary>
@@ -365,11 +365,11 @@ private:
     /// Converts the remaining digit symbols to an integer.
     /// </summary>
     template<typename... helper_symbols>
-    struct static_calc_helper<value<false>, helper_symbols...> {
+    struct static_calculator_helper<value_wrapper<false>, helper_symbols...> {
         /// <summary>
         /// The final value of the expression.
         /// </summary>
-        static constexpr typename_array_size_t value = symbols_to_int<helper_symbols...>::value;
+        static constexpr typename_array_size_type value = symbols_to_int<helper_symbols...>::result;
     };
 
     /// <summary>
@@ -377,7 +377,7 @@ private:
     /// Handles the recursion into evaluating the expression inside parentheses.
     /// </summary>
     template<typename simple_expression_info, typename array>
-    struct calculate_simple_expression<expr_type::parentheses, simple_expression_info, array> {
+    struct calculate_simple_expression<expression_type::parentheses, simple_expression_info, array> {
         /// <summary>
         /// The index of the opening parenthesis.
         /// </summary>
@@ -396,7 +396,7 @@ private:
         /// <summary>
         /// Binder for recursively evaluating the parenthesized expression.
         /// </summary>
-        using binder = typename_binder<static_calc_helper, value<(find_one_of<in_parentheses, expressions_symbols>::index != -1)>>;
+        using binder = typename_binder<static_calculator_helper, value_wrapper<(find_one_of<in_parentheses, expressions_symbols>::index != -1)>>;
         
         /// <summary>
         /// The result of evaluating the parenthesized expression, converted to digit symbols.
@@ -408,7 +408,7 @@ public:
     /// <summary>
     /// The final result of evaluating the mathematical expression.
     /// </summary>
-    static constexpr typename_array_size_t result = static_calc_helper<value<(find_one_of<typename_array<symbols...>, expressions_symbols>::index != -1)>, symbols...>::value;
+    static constexpr typename_array_size_type result = static_calculator_helper<value_wrapper<(find_one_of<typename_array<symbols...>, expressions_symbols>::index != -1)>, symbols...>::value;
 };
 
 #endif // TYPENAME_ARRAY_STATIC_CALC_H

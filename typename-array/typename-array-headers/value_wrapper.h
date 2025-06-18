@@ -4,7 +4,7 @@
 #include "base.h"
 
 template<auto val>
-struct value {
+struct value_wrapper {
 	static constexpr decltype(val) get_value = val;
 };
 

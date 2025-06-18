@@ -18,12 +18,12 @@ private:
     /// <typeparam name="helper_array">The array or remaining portion being searched.</typeparam>
     /// <typeparam name="find">The type to find.</typeparam>
     /// <typeparam name="index">Current position in the search.</typeparam>
-    template<typename helper_array, typename find, typename_array_size_t index>
+    template<typename helper_array, typename find, typename_array_size_type index>
     struct find_helper {
         /// <summary>
         /// When no match is found, returns npos (-1).
         /// </summary>
-        static constexpr typename_array_size_t indx = npos;
+        static constexpr typename_array_size_type indx = npos;
     };
 
     /// <summary>
@@ -35,12 +35,12 @@ private:
     /// <typeparam name="other">Remaining types in the array.</typeparam>
     /// <typeparam name="find">The type to find.</typeparam>
     /// <typeparam name="index">Current position in the search.</typeparam>
-    template<template<typename, typename...> class array_template, typename val, typename... other, typename find, typename_array_size_t index>
+    template<template<typename, typename...> class array_template, typename val, typename... other, typename find, typename_array_size_type index>
     struct find_helper<array_template<val, other...>, find, index> {
         /// <summary>
         /// Recursively search in the remaining types, incrementing the index.
         /// </summary>
-        static constexpr typename_array_size_t indx = find_helper<array_template<other...>, find, index + 1>::indx;
+        static constexpr typename_array_size_type indx = find_helper<array_template<other...>, find, index + 1>::indx;
     };
 
     /// <summary>
@@ -51,12 +51,12 @@ private:
     /// <typeparam name="other">Remaining types in the array.</typeparam>
     /// <typeparam name="find">The matching type found.</typeparam>
     /// <typeparam name="index">Current position in the search (result).</typeparam>
-    template<template<typename, typename...> class array_template, typename... other, typename find, typename_array_size_t index>
+    template<template<typename, typename...> class array_template, typename... other, typename find, typename_array_size_type index>
     struct find_helper<array_template<find, other...>, find, index> {
         /// <summary>
         /// Returns the current index as the match is found.
         /// </summary>
-        static constexpr typename_array_size_t indx = index;
+        static constexpr typename_array_size_type indx = index;
     };
 
 public:
@@ -64,7 +64,7 @@ public:
     /// The index of the first occurrence of val_to_find in the array,
     /// or npos (-1) if the type is not present.
     /// </summary>
-    static constexpr typename_array_size_t index = find_helper<array, val_to_find, 0>::indx;
+    static constexpr typename_array_size_type index = find_helper<array, val_to_find, 0>::indx;
 };
 
 

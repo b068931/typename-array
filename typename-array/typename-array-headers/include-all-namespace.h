@@ -20,13 +20,13 @@ namespace typename_array {
 #include "replace.h"
 #include "replace-part.h"
 #include "sort.h"
-#include "static-calc.h"
+#include "static-calculator.h"
 #include "static-pow.h"
 #include "sum.h"
 #include "symbols-to-int.h"
 #include "typename-binder.h"
 #include "unique-add.h"
-#include "value.h"
+#include "value_wrapper.h"
 }
 
 #endif // TYPENAME_ARRAY_INCLUDE_ALL_NAMESPACE_H

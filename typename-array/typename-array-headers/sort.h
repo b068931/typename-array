@@ -65,8 +65,8 @@ public:
 		using array_1 = templ<val_1, other_1...>;
 		using array_2 = templ<val_2, other_2...>;
 
-		static constexpr typename_array_size_t first = array_1::size / 2;
-		static constexpr typename_array_size_t second = array_2::size / 2;
+		static constexpr typename_array_size_type first = array_1::size / 2;
+		static constexpr typename_array_size_type second = array_2::size / 2;
 
 		using first_half = typename sort_help<typename cut<0, first - 1, array_1>::new_array, typename cut<first, array_1::size - 1, array_1>::new_array>::new_array;
 		using second_half = typename sort_help<typename cut<0, second - 1, array_2>::new_array, typename cut<second, array_2::size - 1, array_2>::new_array>::new_array;
@@ -74,7 +74,7 @@ public:
 		using new_array = typename combine_sorted_arrays<first_half, second_half>::new_array;
 	};
 
-	static constexpr typename_array_size_t half = array::size / 2;
+	static constexpr typename_array_size_type half = array::size / 2;
 
 public:
 	using new_array = typename sort_help<typename cut<0, half - 1, array>::new_array, typename cut<half, array::size - 1, array>::new_array>::new_array;

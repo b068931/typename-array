@@ -18,12 +18,12 @@ private:
     /// <typeparam name="helper_array">Array or remaining portion being processed.</typeparam>
     /// <typeparam name="helper_value_to_count">The type being counted.</typeparam>
     /// <typeparam name="appearances">Running count of occurrences found so far.</typeparam>
-    template<typename helper_array, typename helper_value_to_count, typename_array_size_t appearances>
+    template<typename helper_array, typename helper_value_to_count, typename_array_size_type appearances>
     struct count_helper {
         /// <summary>
         /// The accumulated count of matching types.
         /// </summary>
-        static constexpr typename_array_size_t counter = appearances;
+        static constexpr typename_array_size_type counter = appearances;
     };
 
     /// <summary>
@@ -35,12 +35,12 @@ private:
     /// <typeparam name="other">Remaining types in the array.</typeparam>
     /// <typeparam name="helper_value_to_count">The type being counted.</typeparam>
     /// <typeparam name="appearances">Running count of occurrences found so far.</typeparam>
-    template<template<typename, typename...> class templ, typename value, typename... other, typename helper_value_to_count, typename_array_size_t appearances>
+    template<template<typename, typename...> class templ, typename value, typename... other, typename helper_value_to_count, typename_array_size_type appearances>
     struct count_helper<templ<value, other...>, helper_value_to_count, appearances> {
         /// <summary>
         /// Continues counting in the rest of the array without incrementing.
         /// </summary>
-        static constexpr typename_array_size_t counter = count_helper<templ<other...>, helper_value_to_count, appearances>::counter;
+        static constexpr typename_array_size_type counter = count_helper<templ<other...>, helper_value_to_count, appearances>::counter;
     };
 
     /// <summary>
@@ -51,19 +51,19 @@ private:
     /// <typeparam name="other">Remaining types in the array.</typeparam>
     /// <typeparam name="helper_value_to_count">The type being counted (matched).</typeparam>
     /// <typeparam name="appearances">Running count of occurrences found so far.</typeparam>
-    template<template<typename, typename...> class templ, typename... other, typename helper_value_to_count, typename_array_size_t appearances>
+    template<template<typename, typename...> class templ, typename... other, typename helper_value_to_count, typename_array_size_type appearances>
     struct count_helper<templ<helper_value_to_count, other...>, helper_value_to_count, appearances> {
         /// <summary>
         /// Continues counting in the rest of the array after incrementing the counter.
         /// </summary>
-        static constexpr typename_array_size_t counter = count_helper<templ<other...>, helper_value_to_count, (appearances + 1)>::counter;
+        static constexpr typename_array_size_type counter = count_helper<templ<other...>, helper_value_to_count, (appearances + 1)>::counter;
     };
 
 public:
     /// <summary>
     /// The total number of occurrences of the specified type in the array.
     /// </summary>
-    static constexpr typename_array_size_t counter = count_helper<array, value_to_count, 0>::counter;
+    static constexpr typename_array_size_type counter = count_helper<array, value_to_count, 0>::counter;
 };
 
 #endif // TYPENAME_ARRAY_COUNT_H

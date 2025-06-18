@@ -5,10 +5,10 @@
 #include "insert.h"
 #include "find.h"
 
-template<typename_array_size_t index, typename array, typename new_val>
+template<typename_array_size_type index, typename array, typename new_val>
 struct unique_add {
 private:
-	template<typename_array_size_t found, typename helper_array, typename helper_new_val>
+	template<typename_array_size_type found, typename helper_array, typename helper_new_val>
 	struct unique_add_helper {
 		using value = helper_array;
 	};

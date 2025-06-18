@@ -63,7 +63,7 @@
     <ClInclude Include="typename-array-headers\static-pow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="typename-array-headers\value.h">
+    <ClInclude Include="typename-array-headers\value_wrapper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="typename-array-headers\symbols-to-int.h">
@@ -78,7 +78,7 @@
     <ClInclude Include="typename-array-headers\find-n-appearance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="typename-array-headers\static-calc.h">
+    <ClInclude Include="typename-array-headers\static-calculator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="typename-array-headers\apply.h">

@@ -9,7 +9,7 @@
 /// <typeparam name="replace_index">The index where the type will be replaced.</typeparam>
 /// <typeparam name="array">The source typename array.</typeparam>
 /// <typeparam name="new_type">The new type that will replace the existing one.</typeparam>
-template<typename_array_size_t replace_index, typename array, typename new_type>
+template<typename_array_size_type replace_index, typename array, typename new_type>
 struct replace {
 private:
     /// <summary>
@@ -18,7 +18,7 @@ private:
     /// <typeparam name="index">Current position in the array being processed.</typeparam>
     /// <typeparam name="helper_array">The array or remaining portion being processed.</typeparam>
     /// <typeparam name="helper_new_type">The new type to insert at the target position.</typeparam>
-    template<typename_array_size_t index, typename helper_array, typename helper_new_type>
+    template<typename_array_size_type index, typename helper_array, typename helper_new_type>
     struct replace_helper;
 
     /// <summary>
@@ -46,7 +46,7 @@ private:
     /// <typeparam name="val">The current type to keep.</typeparam>
     /// <typeparam name="other">The remaining types in the array.</typeparam>
     /// <typeparam name="helper_new_type">The new type to insert at the target position.</typeparam>
-    template<typename_array_size_t index, template<typename, typename...> class array_template, typename val, typename... other, typename helper_new_type>
+    template<typename_array_size_type index, template<typename, typename...> class array_template, typename val, typename... other, typename helper_new_type>
     struct replace_helper<index, array_template<val, other...>, helper_new_type> {
         /// <summary>
         /// The resulting array from keeping the current type and processing the rest of the array.

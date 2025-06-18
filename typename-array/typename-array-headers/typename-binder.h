@@ -12,7 +12,7 @@
 /// A placeholder type used to mark positions where types should be inserted.
 /// </summary>
 /// <typeparam name="index">The index of the placeholder for reference.</typeparam>
-template<typename_array_size_t index>
+template<typename_array_size_type index>
 struct placeholder {};
 
 /// <summary>
@@ -31,7 +31,7 @@ private:
     /// <typeparam name="index">The index where the placeholder was found.</typeparam>
     /// <typeparam name="array">The array being processed.</typeparam>
     /// <typeparam name="val">The value to insert or replace with.</typeparam>
-    template<typename_array_size_t index, typename array, typename val>
+    template<typename_array_size_type index, typename array, typename val>
     struct dispatch {
         /// <summary>
         /// The array after replacement of the placeholder at the specified index.
@@ -60,7 +60,7 @@ private:
     /// <typeparam name="index">Current placeholder index being processed.</typeparam>
     /// <typeparam name="end">Last placeholder index to process.</typeparam>
     /// <typeparam name="array">Array containing the types to be bound.</typeparam>
-    template<typename_array_size_t index, typename_array_size_t end, typename array>
+    template<typename_array_size_type index, typename_array_size_type end, typename array>
     struct bind_helper {
         /// <summary>
         /// Recursively process the next placeholder.
@@ -78,7 +78,7 @@ private:
     /// </summary>
     /// <typeparam name="end">Index of the final placeholder.</typeparam>
     /// <typeparam name="array">Array containing the types to be bound.</typeparam>
-    template<typename_array_size_t end, typename array>
+    template<typename_array_size_type end, typename array>
     struct bind_helper<end, end, array> {
         /// <summary>
         /// Process the final placeholder directly using the initial template.

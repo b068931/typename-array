@@ -1,0 +1,23 @@
+1. #include directives start with standard library ones(if any), followed by user-defined headers. The same goes for modules.
+2. Program components are logically grouped with directories. In directories, different words are separated with one space, each word 
+starts with an uppercase letter. Namespaces replicate the directory structure: everything is in lowercase, spaces are replaced with an underscore.
+3. There must be no classes, structures, functions, ... in global namespace. The only exceptions are: main, exported functions and classes.
+Exported in this context means exported through boundaries of one binary (.exe, .dll, etc) to another, this does not cover C++ modules.
+4. There must be no nested classes, structures, ... The only exceptions are: type aliases, templates. Inside the class declarations and
+definitions should (not required) be in the following order: public, protected, private; fields, constructors, methods, overloads, friend functions, destructors.
+5. Only one class, structure, enum, etc per header file. Header file's guard consists of (project_name)_(namespace path)_(name of the class, ...).
+6. Source Files must be placed in a directory called "Implementation" for each directory that contains header files.
+7. Each directory is its own module. Primary module interface unit must contain no declarations and definitions, except module definition and 
+'export import's. Effectively, primary module interface unit aggregates all module elements that are considered to be a part of its public interface.
+The name of the primary module interface unit must start with "Export".
+8. Each class, structure, etc. is its own module partition, which contains both declaration and definition. (not required) Similar functions that are not part of any
+class must be grouped with a class that treats these functions as its public static methods. The same goes for global variables.
+9. All #includes for header files (libraries that do not support modules) must be within global module segment (if file is a module interface definition). Like this:
+''''
+module;
+
+#includes
+
+export module MODULE;
+''''
+10. Snake case is used for all identifiers. Type aliases must end with "_type", template parameters must end with "_type". "{" must be on the same line as the declaration.

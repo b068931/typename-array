@@ -6,12 +6,12 @@
 /// <summary>
 /// Type used for array indexing and size representation.
 /// </summary>
-using typename_array_size_t = long long;
+using typename_array_size_type = long long;
 
 /// <summary>
 /// Special value indicating "no position" or "not found" in typename arrays.
 /// </summary>
-constexpr typename_array_size_t npos = -1;
+constexpr typename_array_size_type npos = -1;
 
 /// <summary>
 /// A compile-time container for a sequence of types.
@@ -22,7 +22,7 @@ struct typename_array {
     /// <summary>
     /// The number of types contained in this array.
     /// </summary>
-    static constexpr typename_array_size_t size = sizeof... (arguments);
+    static constexpr typename_array_size_type size = sizeof... (arguments);
 
     /// <summary>
     /// Transfers the types in this array to another template.

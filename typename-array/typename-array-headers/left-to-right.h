@@ -6,12 +6,12 @@
 template<typename array>
 struct left_to_right {
 private:
-	template<typename_array_size_t counter, typename helper_array>
+	template<typename_array_size_type counter, typename helper_array>
 	struct left_to_right_helper {
 		using new_array = helper_array;
 	};
 
-	template<typename_array_size_t counter, template<typename, typename...> class array_template, typename val, typename... other>
+	template<typename_array_size_type counter, template<typename, typename...> class array_template, typename val, typename... other>
 	struct left_to_right_helper<counter, array_template<val, other...>> {
 		using new_array = typename combine<typename left_to_right_helper<counter - 1, typename_array<other...>>::new_array, typename_array<val>>::new_array;
 	};

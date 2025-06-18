@@ -9,12 +9,12 @@ struct find_priority {
 private:
 	template<typename helper_array, typename helper_array_to_find>
 	struct find_priority_helper {
-		static constexpr typename_array_size_t indx = npos;
+		static constexpr typename_array_size_type indx = npos;
 	};
 
-	template<typename_array_size_t val>
+	template<typename_array_size_type val>
 	struct cont {
-		static constexpr typename_array_size_t indx = val;
+		static constexpr typename_array_size_type indx = val;
 	};
 
 	template<template<typename, typename...> class templ, typename val, typename... other, typename helper_array>
@@ -25,11 +25,11 @@ private:
 			cont<find<helper_array, val>::index>
 		>::type;
 
-		static constexpr typename_array_size_t indx = value_type::indx;
+		static constexpr typename_array_size_type indx = value_type::indx;
 	};
 
 public:
-	static constexpr typename_array_size_t index = find_priority_helper<array, array_to_find>::indx;
+	static constexpr typename_array_size_type index = find_priority_helper<array, array_to_find>::indx;
 };
 
 #endif // TYPENAME_ARRAY_FIND_PRIORITY_H
