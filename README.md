@@ -8,6 +8,8 @@ A C++20 template metaprogramming library for manipulating types as collections. 
 
 This project was primarily created as a learning exercise in template metaprogramming.
 
+I mainly use AI to generate the tests and documentation, so they might be not ideal.
+
 ## ✨ Featured
 
 - **Type Collections**: Store and manipulate collections of types with `typename_array<Types...>`

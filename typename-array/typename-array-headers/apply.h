@@ -22,6 +22,7 @@ private:
 
     /// <summary>
     /// Helper specialization for an empty array.
+    /// Notice that array_template uses typename... as a typename list. This is due to the fact that MSVC and GCC deduce template arguments differently.
     /// </summary>
     /// <typeparam name="array_template">The template of the array.</typeparam>
     /// <typeparam name="helper_functor_template">The transformation function template.</typeparam>
