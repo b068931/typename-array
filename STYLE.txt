@@ -21,3 +21,4 @@ module;
 export module MODULE;
 ''''
 10. Snake case is used for all identifiers. Type aliases must end with "_type", template parameters must end with "_type". "{" must be on the same line as the declaration.
+Template template arguments must end with "_template".
