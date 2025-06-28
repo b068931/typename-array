@@ -163,6 +163,8 @@
     <ClCompile Include="test-files\count-tests.cpp" />
     <ClCompile Include="test-files\cut-tests.cpp" />
     <ClCompile Include="test-files\erase-tests.cpp" />
+    <ClCompile Include="test-files\find-if-tests.cpp" />
+    <ClCompile Include="test-files\find-n-appearance-tests.cpp" />
     <ClCompile Include="test-files\find-tests.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

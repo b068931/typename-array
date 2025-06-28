@@ -1,6 +1,7 @@
+#include <type_traits>
+
 #include "../typename-array-primitives/erase.h"
 #include "../typename-array-primitives/count.h"
-#include <type_traits>
 
 int main() {
     // Test erasing the only element from a single-element array
