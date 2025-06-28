@@ -1,5 +1,5 @@
-#ifndef TYPENAME_ARRAY_CHECK_FOR_ALLOWED_TYPES_H
-#define TYPENAME_ARRAY_CHECK_FOR_ALLOWED_TYPES_H
+#ifndef TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_CHECK_FOR_ALLOWED_TYPES_H
+#define TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_CHECK_FOR_ALLOWED_TYPES_H
 
 #include "base.h"
 #include "find.h"
@@ -69,4 +69,4 @@ public:
     static constexpr bool is_valid = check_for_allowed_types_helper<array_type, allowed_types, true>::is_valid;
 };
 
-#endif // TYPENAME_ARRAY_CHECK_FOR_ALLOWED_TYPES_H
+#endif // TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_CHECK_FOR_ALLOWED_TYPES_H

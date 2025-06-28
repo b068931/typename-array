@@ -2,7 +2,7 @@
 #define TYPENAME_ARRAY_STATIC_CALC_H
 
 #include "base.h"
-#include "value_wrapper.h"
+#include "value-wrapper.h"
 #include "cut.h"
 #include "find-one-of.h"
 #include "left-to-right.h"

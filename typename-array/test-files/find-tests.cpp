@@ -1,7 +1,4 @@
-#include <iostream>
-#include <type_traits>
-#include "../typename-array-headers/base.h"
-#include "../typename-array-headers/find.h"
+#include "../typename-array-primitives/find.h"
 
 int main() {
     // Test finding in an empty array

@@ -1,7 +1,7 @@
 #ifndef TYPENAME_ARRAY_INCLUDE_ALL_NAMESPACE_H
 #define TYPENAME_ARRAY_INCLUDE_ALL_NAMESPACE_H
 
-namespace typename_array {
+namespace typename_array_primitives {
 #include "apply.h"
 #include "base.h"
 #include "check-for-allowed-types.h"
@@ -26,7 +26,7 @@ namespace typename_array {
 #include "symbols-to-int.h"
 #include "typename-binder.h"
 #include "unique-add.h"
-#include "value_wrapper.h"
+#include "value-wrapper.h"
 }
 
 #endif // TYPENAME_ARRAY_INCLUDE_ALL_NAMESPACE_H

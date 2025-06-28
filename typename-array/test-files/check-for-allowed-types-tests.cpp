@@ -1,14 +1,16 @@
-#include "../typename-array-headers/check-for-allowed-types.h"
+#include "../typename-array-primitives/check-for-allowed-types.h"
 
-// Define test types
-struct TypeA {};
-struct TypeB {};
-struct TypeC {};
-struct TypeD {};
+namespace {
+    // Define test types
+    struct TypeA {};
+    struct TypeB {};
+    struct TypeC {};
+    struct TypeD {};
 
-// Define a type array template for testing
-template<typename... Types>
-struct TypeArray {};
+    // Define a type array template for testing
+    template<typename... Types>
+    struct TypeArray {};
+}
 
 int main() {
     // Test 1: All types are allowed

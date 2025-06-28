@@ -1,34 +1,36 @@
-#include "../typename-array-headers/apply.h"
+#include "../typename-array-primitives/apply.h"
 
-// Test functor that adds a pointer to each type
-template<typename T, typename_array_size_type Index>
-struct add_pointer_functor {
-    using new_value = T*;
-};
+namespace {
+    // Test functor that adds a pointer to each type
+    template<typename T, typename_array_size_type Index>
+    struct add_pointer_functor {
+        using new_value = T *;
+    };
 
-// Test functor that applies const based on index (odd indices get const)
-template<typename T, typename_array_size_type Index>
-struct index_based_const_functor {
-    using new_value = typename std::conditional<
-        (Index % 2 == 0),
-        T,          // Even indices: keep type as-is
-        const T     // Odd indices: add const
-    >::type;
-};
+    // Test functor that applies const based on index (odd indices get const)
+    template<typename T, typename_array_size_type Index>
+    struct index_based_const_functor {
+        using new_value = typename std::conditional<
+            (Index % 2 == 0),
+            T,          // Even indices: keep type as-is
+            const T     // Odd indices: add const
+        >::type;
+    };
 
-// Test functor that applies different transformations based on index modulo 3
-template<typename T, typename_array_size_type Index>
-struct type_selector_functor {
-    using new_value = typename std::conditional<
-        (Index % 3 == 0),
-        T*,                     // Index % 3 == 0: pointer
-        typename std::conditional<
+    // Test functor that applies different transformations based on index modulo 3
+    template<typename T, typename_array_size_type Index>
+    struct type_selector_functor {
+        using new_value = typename std::conditional<
+            (Index % 3 == 0),
+            T *,                     // Index % 3 == 0: pointer
+            typename std::conditional<
             (Index % 3 == 1),
-            T&,                 // Index % 3 == 1: reference
+            T &,                 // Index % 3 == 1: reference
             const T             // Index % 3 == 2: const
-        >::type
-    >::type;
-};
+            >::type
+        >::type;
+    };
+}
 
 int main() {
     // Test 1: Apply to empty array

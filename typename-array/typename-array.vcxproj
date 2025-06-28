@@ -128,38 +128,41 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="typename-array-headers\apply.h" />
-    <ClInclude Include="typename-array-headers\base.h" />
-    <ClInclude Include="typename-array-headers\check-for-allowed-types.h" />
-    <ClInclude Include="typename-array-headers\count.h" />
-    <ClInclude Include="typename-array-headers\cut.h" />
-    <ClInclude Include="typename-array-headers\erase.h" />
-    <ClInclude Include="typename-array-headers\find-if.h" />
-    <ClInclude Include="typename-array-headers\find-n-appearance.h" />
-    <ClInclude Include="typename-array-headers\find-one-of.h" />
-    <ClInclude Include="typename-array-headers\find.h" />
-    <ClInclude Include="typename-array-headers\find-priority.h" />
-    <ClInclude Include="typename-array-headers\get.h" />
-    <ClInclude Include="typename-array-headers\include-all-namespace.h" />
-    <ClInclude Include="typename-array-headers\insert.h" />
-    <ClInclude Include="typename-array-headers\int-to-symbols.h" />
-    <ClInclude Include="typename-array-headers\left-to-right.h" />
-    <ClInclude Include="typename-array-headers\replace-part.h" />
-    <ClInclude Include="typename-array-headers\replace.h" />
-    <ClInclude Include="typename-array-headers\sort.h" />
-    <ClInclude Include="typename-array-headers\static-calculator.h" />
-    <ClInclude Include="typename-array-headers\static-pow.h" />
-    <ClInclude Include="typename-array-headers\sum.h" />
-    <ClInclude Include="typename-array-headers\symbols-to-int.h" />
-    <ClInclude Include="typename-array-headers\typename-binder.h" />
-    <ClInclude Include="typename-array-headers\unique-add.h" />
-    <ClInclude Include="typename-array-headers\value_wrapper.h" />
+    <ClInclude Include="typename-array-primitives\apply.h" />
+    <ClInclude Include="typename-array-primitives\base.h" />
+    <ClInclude Include="typename-array-primitives\check-for-allowed-types.h" />
+    <ClInclude Include="typename-array-primitives\count.h" />
+    <ClInclude Include="typename-array-primitives\cut.h" />
+    <ClInclude Include="typename-array-primitives\erase.h" />
+    <ClInclude Include="typename-array-primitives\find-if.h" />
+    <ClInclude Include="typename-array-primitives\find-n-appearance.h" />
+    <ClInclude Include="typename-array-primitives\find-one-of.h" />
+    <ClInclude Include="typename-array-primitives\find.h" />
+    <ClInclude Include="typename-array-primitives\find-priority.h" />
+    <ClInclude Include="typename-array-primitives\get.h" />
+    <ClInclude Include="typename-array-primitives\include-all-namespace.h" />
+    <ClInclude Include="typename-array-primitives\insert.h" />
+    <ClInclude Include="typename-array-primitives\int-to-symbols.h" />
+    <ClInclude Include="typename-array-primitives\left-to-right.h" />
+    <ClInclude Include="typename-array-primitives\replace-part.h" />
+    <ClInclude Include="typename-array-primitives\replace.h" />
+    <ClInclude Include="typename-array-primitives\sort.h" />
+    <ClInclude Include="typename-array-primitives\static-calculator.h" />
+    <ClInclude Include="typename-array-primitives\static-pow.h" />
+    <ClInclude Include="typename-array-primitives\sum.h" />
+    <ClInclude Include="typename-array-primitives\symbols-to-int.h" />
+    <ClInclude Include="typename-array-primitives\typename-binder.h" />
+    <ClInclude Include="typename-array-primitives\unique-add.h" />
+    <ClInclude Include="typename-array-primitives\value-wrapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="test-files\apply-tests.cpp" />
     <ClCompile Include="test-files\base-tests.cpp" />
     <ClCompile Include="test-files\check-for-allowed-types-tests.cpp" />
+    <ClCompile Include="test-files\count-tests.cpp" />
+    <ClCompile Include="test-files\cut-tests.cpp" />
+    <ClCompile Include="test-files\erase-tests.cpp" />
     <ClCompile Include="test-files\find-tests.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -2,7 +2,7 @@
 #define TYPENAME_ARRAY_INT_TO_SYMBOLS_H
 
 #include "base.h"
-#include "value_wrapper.h"
+#include "value-wrapper.h"
 
 template<typename_array_size_type value>
 struct int_to_symbols {

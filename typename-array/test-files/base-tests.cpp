@@ -1,8 +1,7 @@
-#include <iostream>
-#include <tuple>
 #include <type_traits>
 #include <vector>
-#include "../typename-array-headers/base.h"
+
+#include "../typename-array-primitives/base.h"
 
 int main() {
     // Test empty typename_array

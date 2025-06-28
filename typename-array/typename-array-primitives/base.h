@@ -1,5 +1,5 @@
-#ifndef TYPENAME_ARRAY_BASE_H
-#define TYPENAME_ARRAY_BASE_H
+#ifndef TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_BASE_H
+#define TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_BASE_H
 
 #include <type_traits>
 
@@ -56,4 +56,4 @@ struct combine<array_template<first_array_arguments_type...>, array_template<sec
     using new_array = array_template<first_array_arguments_type..., second_array_arguments_type...>;
 };
 
-#endif // TYPENAME_ARRAY_BASE_H
+#endif // TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_BASE_H

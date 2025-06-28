@@ -1,5 +1,5 @@
-#ifndef TYPENAME_ARRAY_APPLY_H
-#define TYPENAME_ARRAY_APPLY_H
+#ifndef TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_APPLY_H
+#define TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_APPLY_H
 
 #include "base.h"
 
@@ -78,4 +78,4 @@ public:
     using new_array = typename apply_helper<array_type, functor_template, 0>::new_array;
 };
 
-#endif // TYPENAME_ARRAY_APPLY_H
+#endif // TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_APPLY_H
