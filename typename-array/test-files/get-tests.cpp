@@ -1,4 +1,4 @@
-#include "../typename-array-primitives/get.h"
+#include "../typename-array-primitives/get.hpp"
 
 int main() {
     // Test getting from a single-type array

@@ -1,7 +1,7 @@
 #ifndef TYPENAME_ARRAY_SUM_H
 #define TYPENAME_ARRAY_SUM_H
 
-#include "base.h"
+#include "base.hpp"
 
 template<typename array, template<typename> class funct, typename return_type>
 struct sum {

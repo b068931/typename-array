@@ -1,4 +1,4 @@
-#include "../typename-array-primitives/find-one-of.h"
+#include "../typename-array-primitives/find-one-of.hpp"
 
 int main() {
     // Test finding in an empty array

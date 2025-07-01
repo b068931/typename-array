@@ -1,7 +1,7 @@
 #ifndef TYPENAME_ARRAY_LEFT_TO_RIGHT_H
 #define TYPENAME_ARRAY_LEFT_TO_RIGHT_H
 
-#include "base.h"
+#include "base.hpp"
 
 template<typename array>
 struct left_to_right {

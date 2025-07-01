@@ -1,9 +1,9 @@
 #ifndef TYPENAME_ARRAY_FIND_PRIORITY_H
 #define TYPENAME_ARRAY_FIND_PRIORITY_H
 
-#include "base.h"
-#include "find.h"
-#include "value-wrapper.h"
+#include "base.hpp"
+#include "find.hpp"
+#include "value-wrapper.hpp"
 
 /// <summary>
 /// Finds the first type from array_to_find that exists in the array, returning its index.

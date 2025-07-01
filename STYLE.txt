@@ -23,3 +23,4 @@ export module MODULE;
 ''''
 10. Snake case is used for all identifiers. Type aliases must end with "_type", template parameters must end with "_type". "{" must be on the same line as the declaration.
 Template template arguments must end with "_template". All macros must be in uppercase, with words separated by underscores.
+11. Header files must end with .hpp, source files must end with .cpp. Module primary interface units must end with .ixx.

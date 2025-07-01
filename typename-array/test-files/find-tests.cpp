@@ -1,4 +1,4 @@
-#include "../typename-array-primitives/find.h"
+#include "../typename-array-primitives/find.hpp"
 
 int main() {
     // Test finding in an empty array

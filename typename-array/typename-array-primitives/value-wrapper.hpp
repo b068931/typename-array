@@ -1,7 +1,7 @@
 #ifndef TYPENAME_ARRAY_VALUE_H
 #define TYPENAME_ARRAY_VALUE_H
 
-#include "base.h"
+#include "base.hpp"
 
 template<auto val>
 struct value_wrapper {

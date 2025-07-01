@@ -1,7 +1,7 @@
 #include <type_traits>
 #include <vector>
 
-#include "../typename-array-primitives/base.h"
+#include "../typename-array-primitives/base.hpp"
 
 int main() {
     // Test empty typename_array

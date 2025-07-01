@@ -1,7 +1,7 @@
 #ifndef TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_FIND_IF_H
 #define TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_FIND_IF_H
 
-#include "base.h"
+#include "base.hpp"
 
 /// <summary>
 /// Finds the first type in a typename array that satisfies a given predicate.

@@ -1,4 +1,4 @@
-#include "../typename-array-primitives/check-for-allowed-types.h"
+#include "../typename-array-primitives/check-for-allowed-types.hpp"
 
 namespace {
     // Define test types

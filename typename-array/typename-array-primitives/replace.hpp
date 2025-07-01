@@ -1,7 +1,7 @@
 #ifndef TYPENAME_ARRAY_REPLACE_H
 #define TYPENAME_ARRAY_REPLACE_H
 
-#include "base.h"
+#include "base.hpp"
 
 /// <summary>
 /// Replaces a type at a specific index in a typename array with a new type.

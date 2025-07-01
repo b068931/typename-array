@@ -1,7 +1,7 @@
 #ifndef TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_FIND_N_APPEARANCE_H
 #define TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_FIND_N_APPEARANCE_H
 
-#include "base.h"
+#include "base.hpp"
 
 /// <summary>
 /// Finds the index of the Nth appearance of a specific type in a typename array.

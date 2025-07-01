@@ -1,7 +1,7 @@
 #ifndef TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_COUNT_H
 #define TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_COUNT_H
 
-#include "base.h"
+#include "base.hpp"
 
 /// <summary>
 /// Counts occurrences of a specific type within a typename_array.

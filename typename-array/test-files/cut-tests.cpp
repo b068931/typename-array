@@ -1,6 +1,6 @@
 #include <type_traits>
 
-#include "../typename-array-primitives/cut.h"
+#include "../typename-array-primitives/cut.hpp"
 
 int main() {
     // Test multi-type array for cutting

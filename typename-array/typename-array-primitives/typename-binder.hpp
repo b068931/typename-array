@@ -1,12 +1,12 @@
 #ifndef TYPENAME_ARRAY_TYPENAME_BINDER_H
 #define TYPENAME_ARRAY_TYPENAME_BINDER_H
 
-#include "base.h"
-#include "replace.h"
-#include "insert.h"
-#include "find.h"
-#include "left-to-right.h"
-#include "get.h"
+#include "base.hpp"
+#include "replace.hpp"
+#include "insert.hpp"
+#include "find.hpp"
+#include "left-to-right.hpp"
+#include "get.hpp"
 
 /// <summary>
 /// A placeholder type used to mark positions where types should be inserted.

@@ -1,4 +1,4 @@
-#include "../typename-array-primitives/count.h"
+#include "../typename-array-primitives/count.hpp"
 
 int main() {
     // Test counting in an empty array

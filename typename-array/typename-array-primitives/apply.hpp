@@ -1,7 +1,7 @@
 #ifndef TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_APPLY_H
 #define TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_APPLY_H
 
-#include "base.h"
+#include "base.hpp"
 
 /// <summary>
 /// Applies a function template to each type in an array, producing a new array with transformed types.

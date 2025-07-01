@@ -1,8 +1,8 @@
 #ifndef TYPENAME_ARRAY_REPLACE_PART_H
 #define TYPENAME_ARRAY_REPLACE_PART_H
 
-#include "base.h"
-#include "cut.h"
+#include "base.hpp"
+#include "cut.hpp"
 
 template<typename array, typename_array_size_type start, typename_array_size_type end, typename to_place>
 struct replace_part {

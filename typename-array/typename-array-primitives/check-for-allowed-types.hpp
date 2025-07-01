@@ -1,8 +1,8 @@
 #ifndef TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_CHECK_FOR_ALLOWED_TYPES_H
 #define TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_CHECK_FOR_ALLOWED_TYPES_H
 
-#include "base.h"
-#include "find.h"
+#include "base.hpp"
+#include "find.hpp"
 
 /// <summary>
 /// Verifies that all types in the array are present in the allowed_types list.

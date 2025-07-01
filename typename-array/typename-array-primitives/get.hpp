@@ -1,7 +1,7 @@
 #ifndef TYPENAME_ARRAY_GET_H
 #define TYPENAME_ARRAY_GET_H
 
-#include "base.h"
+#include "base.hpp"
 
 /// <summary>
 /// Retrieves the type at a specific index within a typename_array.

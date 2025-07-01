@@ -128,32 +128,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="typename-array-primitives\apply.h" />
-    <ClInclude Include="typename-array-primitives\base.h" />
-    <ClInclude Include="typename-array-primitives\check-for-allowed-types.h" />
-    <ClInclude Include="typename-array-primitives\count.h" />
-    <ClInclude Include="typename-array-primitives\cut.h" />
-    <ClInclude Include="typename-array-primitives\erase.h" />
-    <ClInclude Include="typename-array-primitives\find-if.h" />
-    <ClInclude Include="typename-array-primitives\find-n-appearance.h" />
-    <ClInclude Include="typename-array-primitives\find-one-of.h" />
-    <ClInclude Include="typename-array-primitives\find.h" />
-    <ClInclude Include="typename-array-primitives\find-priority.h" />
-    <ClInclude Include="typename-array-primitives\get.h" />
-    <ClInclude Include="typename-array-primitives\include-all-namespace.h" />
-    <ClInclude Include="typename-array-primitives\insert.h" />
-    <ClInclude Include="typename-array-primitives\int-to-symbols.h" />
-    <ClInclude Include="typename-array-primitives\left-to-right.h" />
-    <ClInclude Include="typename-array-primitives\replace-part.h" />
-    <ClInclude Include="typename-array-primitives\replace.h" />
-    <ClInclude Include="typename-array-primitives\sort.h" />
-    <ClInclude Include="typename-array-primitives\static-calculator.h" />
-    <ClInclude Include="typename-array-primitives\static-pow.h" />
-    <ClInclude Include="typename-array-primitives\sum.h" />
-    <ClInclude Include="typename-array-primitives\symbols-to-int.h" />
-    <ClInclude Include="typename-array-primitives\typename-binder.h" />
-    <ClInclude Include="typename-array-primitives\unique-add.h" />
-    <ClInclude Include="typename-array-primitives\value-wrapper.h" />
+    <ClInclude Include="typename-array-primitives\apply.hpp" />
+    <ClInclude Include="typename-array-primitives\base.hpp" />
+    <ClInclude Include="typename-array-primitives\check-for-allowed-types.hpp" />
+    <ClInclude Include="typename-array-primitives\count.hpp" />
+    <ClInclude Include="typename-array-primitives\cut.hpp" />
+    <ClInclude Include="typename-array-primitives\erase.hpp" />
+    <ClInclude Include="typename-array-primitives\find-if.hpp" />
+    <ClInclude Include="typename-array-primitives\find-n-appearance.hpp" />
+    <ClInclude Include="typename-array-primitives\find-one-of.hpp" />
+    <ClInclude Include="typename-array-primitives\find.hpp" />
+    <ClInclude Include="typename-array-primitives\find-priority.hpp" />
+    <ClInclude Include="typename-array-primitives\get.hpp" />
+    <ClInclude Include="typename-array-primitives\include-all-namespace.hpp" />
+    <ClInclude Include="typename-array-primitives\insert.hpp" />
+    <ClInclude Include="typename-array-primitives\int-to-symbols.hpp" />
+    <ClInclude Include="typename-array-primitives\left-to-right.hpp" />
+    <ClInclude Include="typename-array-primitives\replace-part.hpp" />
+    <ClInclude Include="typename-array-primitives\replace.hpp" />
+    <ClInclude Include="typename-array-primitives\sort.hpp" />
+    <ClInclude Include="typename-array-primitives\static-calculator.hpp" />
+    <ClInclude Include="typename-array-primitives\static-pow.hpp" />
+    <ClInclude Include="typename-array-primitives\sum.hpp" />
+    <ClInclude Include="typename-array-primitives\symbols-to-int.hpp" />
+    <ClInclude Include="typename-array-primitives\typename-binder.hpp" />
+    <ClInclude Include="typename-array-primitives\unique-add.hpp" />
+    <ClInclude Include="typename-array-primitives\value-wrapper.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

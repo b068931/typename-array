@@ -1,4 +1,4 @@
-#include "../typename-array-primitives/find-priority.h"
+#include "../typename-array-primitives/find-priority.hpp"
 
 int main() {
     // Test with empty array to search within

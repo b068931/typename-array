@@ -1,9 +1,9 @@
 #ifndef TYPENAME_ARRAY_SORT_H
 #define TYPENAME_ARRAY_SORT_H
 
-#include "base.h"
-#include "get.h"
-#include "cut.h"
+#include "base.hpp"
+#include "get.hpp"
+#include "cut.hpp"
 
 template<typename array, template<typename, typename> class predicate>
 struct sort {

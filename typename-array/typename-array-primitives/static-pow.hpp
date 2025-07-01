@@ -1,7 +1,7 @@
 #ifndef TYPENAME_ARRAY_STATIC_POW_H
 #define TYPENAME_ARRAY_STATIC_POW_H
 
-#include "base.h"
+#include "base.hpp"
 
 template<typename_array_size_type value, typename_array_size_type counter>
 struct static_pow {

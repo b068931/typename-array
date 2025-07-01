@@ -1,7 +1,7 @@
 #ifndef TYPENAME_ARRAY_INSERT_H
 #define TYPENAME_ARRAY_INSERT_H
 
-#include "base.h"
+#include "base.hpp"
 
 template<typename_array_size_type insert_index, typename array, typename new_type>
 struct insert {

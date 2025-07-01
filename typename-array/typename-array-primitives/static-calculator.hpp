@@ -1,17 +1,17 @@
 #ifndef TYPENAME_ARRAY_STATIC_CALC_H
 #define TYPENAME_ARRAY_STATIC_CALC_H
 
-#include "base.h"
-#include "value-wrapper.h"
-#include "cut.h"
-#include "find-one-of.h"
-#include "left-to-right.h"
-#include "find-priority.h"
-#include "symbols-to-int.h"
-#include "get.h"
-#include "int-to-symbols.h"
-#include "replace-part.h"
-#include "typename-binder.h"
+#include "base.hpp"
+#include "value-wrapper.hpp"
+#include "cut.hpp"
+#include "find-one-of.hpp"
+#include "left-to-right.hpp"
+#include "find-priority.hpp"
+#include "symbols-to-int.hpp"
+#include "get.hpp"
+#include "int-to-symbols.hpp"
+#include "replace-part.hpp"
+#include "typename-binder.hpp"
 
 /// <summary>
 /// Compiles and evaluates a mathematical expression at compile time using type-level computation.

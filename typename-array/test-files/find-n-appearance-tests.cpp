@@ -1,4 +1,4 @@
-#include "../typename-array-primitives/find-n-appearance.h"
+#include "../typename-array-primitives/find-n-appearance.hpp"
 
 int main() {
     // Test finding in an empty array (should return npos)

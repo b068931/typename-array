@@ -1,7 +1,7 @@
 #ifndef TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_FIND_H
 #define TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_FIND_H
 
-#include "base.h"
+#include "base.hpp"
 
 /// <summary>
 /// Searches for a specific type in a typename array and provides its index.

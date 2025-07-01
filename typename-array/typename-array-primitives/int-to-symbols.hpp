@@ -1,8 +1,8 @@
 #ifndef TYPENAME_ARRAY_INT_TO_SYMBOLS_H
 #define TYPENAME_ARRAY_INT_TO_SYMBOLS_H
 
-#include "base.h"
-#include "value-wrapper.h"
+#include "base.hpp"
+#include "value-wrapper.hpp"
 
 template<typename_array_size_type value>
 struct int_to_symbols {

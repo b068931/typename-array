@@ -1,7 +1,7 @@
 #ifndef TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_CUT_H
 #define TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_CUT_H
 
-#include "base.h"
+#include "base.hpp"
 
 /// <summary>
 /// Extracts a subset of types from a typename array based on specified indices.

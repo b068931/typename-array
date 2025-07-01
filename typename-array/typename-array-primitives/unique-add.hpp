@@ -1,9 +1,9 @@
 #ifndef TYPENAME_ARRAY_UNIQUE_ADD_H
 #define TYPENAME_ARRAY_UNIQUE_ADD_H
 
-#include "base.h"
-#include "insert.h"
-#include "find.h"
+#include "base.hpp"
+#include "insert.hpp"
+#include "find.hpp"
 
 template<typename_array_size_type index, typename array, typename new_val>
 struct unique_add {

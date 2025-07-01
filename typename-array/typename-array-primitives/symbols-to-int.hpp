@@ -1,8 +1,8 @@
 #ifndef TYPENAME_ARRAY_SYMBOLS_TO_INT_H
 #define TYPENAME_ARRAY_SYMBOLS_TO_INT_H
 
-#include "base.h"
-#include "static-pow.h"
+#include "base.hpp"
+#include "static-pow.hpp"
 
 template<typename... symbols>
 struct symbols_to_int {

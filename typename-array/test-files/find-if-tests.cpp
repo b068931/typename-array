@@ -1,6 +1,6 @@
 #include <type_traits>
 
-#include "../typename-array-primitives/find-if.h"
+#include "../typename-array-primitives/find-if.hpp"
 
 namespace {
     // Create predicates for testing

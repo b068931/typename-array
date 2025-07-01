@@ -1,8 +1,8 @@
 #ifndef TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_FIND_ONE_OF_H
 #define TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_FIND_ONE_OF_H
 
-#include "base.h"
-#include "find.h"
+#include "base.hpp"
+#include "find.hpp"
 
 /// <summary>
 /// Finds the first occurrence of any type from one array within another array.

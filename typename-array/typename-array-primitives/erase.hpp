@@ -1,7 +1,7 @@
 #ifndef TYPENAME_ARRAY_TYPENAME_PRIMITIVES_ERASE_H
 #define TYPENAME_ARRAY_TYPENAME_PRIMITIVES_ERASE_H
 
-#include "base.h"
+#include "base.hpp"
 
 /// <summary>
 /// Removes a type at the specified index from a typename array.

@@ -1,4 +1,4 @@
-#include "../typename-array-primitives/apply.h"
+#include "../typename-array-primitives/apply.hpp"
 
 namespace {
     // Test functor that adds a pointer to each type

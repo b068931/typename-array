@@ -1,5 +1,5 @@
 #include <iostream>
-#include "./typename-array-primitives/include-all-namespace.h"
+#include "./typename-array-primitives/include-all-namespace.hpp"
 
 int main() {
     using namespace typename_array_primitives;
