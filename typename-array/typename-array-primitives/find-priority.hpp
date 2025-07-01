@@ -1,5 +1,5 @@
-#ifndef TYPENAME_ARRAY_FIND_PRIORITY_H
-#define TYPENAME_ARRAY_FIND_PRIORITY_H
+#ifndef TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_FIND_PRIORITY_H
+#define TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_FIND_PRIORITY_H
 
 #include "base.hpp"
 #include "find.hpp"
@@ -61,4 +61,4 @@ public:
     static constexpr typename_array_size_type index = find_priority_helper<array_type, array_to_find_type>::get_value;
 };
 
-#endif // TYPENAME_ARRAY_FIND_PRIORITY_H
+#endif // TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_FIND_PRIORITY_H

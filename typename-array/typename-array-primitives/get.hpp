@@ -1,5 +1,5 @@
-#ifndef TYPENAME_ARRAY_GET_H
-#define TYPENAME_ARRAY_GET_H
+#ifndef TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_GET_H
+#define TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_GET_H
 
 #include "base.hpp"
 
@@ -58,4 +58,4 @@ public:
     using value = typename get_helper<index, array_type>::value;
 };
 
-#endif // TYPENAME_ARRAY_GET_H
+#endif // TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_GET_H
