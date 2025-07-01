@@ -165,7 +165,10 @@
     <ClCompile Include="test-files\erase-tests.cpp" />
     <ClCompile Include="test-files\find-if-tests.cpp" />
     <ClCompile Include="test-files\find-n-appearance-tests.cpp" />
+    <ClCompile Include="test-files\find-one-of-tests.cpp" />
+    <ClCompile Include="test-files\find-priority-tests.cpp" />
     <ClCompile Include="test-files\find-tests.cpp" />
+    <ClCompile Include="test-files\get-tests.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
