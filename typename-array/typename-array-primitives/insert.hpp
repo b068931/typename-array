@@ -54,7 +54,8 @@ private:
         /// Combines the current value with the result of processing the remaining array.
         /// </summary>
         using next = typename combine<
-            typename_array<value_type>, typename insert_helper<index + 1, array_template<other_types...>, helper_new_type>::new_array
+            typename_array<value_type>,
+            typename insert_helper<index + 1, array_template<other_types...>, helper_new_type>::new_array
         >::new_array;
 
         /// <summary>

@@ -47,7 +47,10 @@ public:
         /// <summary>
         /// The resulting array, combining the current type with the result of processing the rest.
         /// </summary>
-        using new_array = typename combine<typename_array<value_type>, typename erase_helper<index + 1, typename_array<other_types...>>::new_array>::new_array;
+        using new_array = typename combine<
+            typename_array<value_type>,
+            typename erase_helper<index + 1, typename_array<other_types...>>::new_array
+        >::new_array;
     };
 
 public:

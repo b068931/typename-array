@@ -40,7 +40,11 @@ private:
         /// <summary>
         /// Continues counting in the rest of the array without incrementing.
         /// </summary>
-        static constexpr typename_array_size_type counter = count_helper<array_template<other_types...>, helper_type_to_count, appearances_counter>::counter;
+        static constexpr typename_array_size_type counter = count_helper<
+            array_template<other_types...>,
+            helper_type_to_count,
+            appearances_counter
+        >::counter;
     };
 
     /// <summary>
@@ -56,7 +60,11 @@ private:
         /// <summary>
         /// Continues counting in the rest of the array after incrementing the counter.
         /// </summary>
-        static constexpr typename_array_size_type counter = count_helper<array_template<other_types...>, helper_types_to_count, (appearances_counter + 1)>::counter;
+        static constexpr typename_array_size_type counter = count_helper<
+            array_template<other_types...>,
+            helper_types_to_count,
+            (appearances_counter + 1)
+        >::counter;
     };
 
 public:

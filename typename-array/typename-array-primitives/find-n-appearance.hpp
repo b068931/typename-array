@@ -38,7 +38,13 @@ private:
     /// <typeparam name="index">The current position in the array.</typeparam>
     template<template<typename...> class array_template, typename value_type, typename helper_type_to_find, typename... other_types, typename_array_size_type helper_counter, typename_array_size_type index>
     struct find_n_appearance_helper<array_template<value_type, other_types...>, helper_type_to_find, helper_counter, index, true> {
-        static constexpr typename_array_size_type indx = find_n_appearance_helper<array_template<other_types...>, helper_type_to_find, helper_counter, (index + 1), true>::indx;
+        static constexpr typename_array_size_type indx = find_n_appearance_helper<
+            array_template<other_types...>,
+            helper_type_to_find,
+            helper_counter,
+            (index + 1),
+            true
+        >::indx;
     };
 
     /// <summary>
@@ -52,7 +58,13 @@ private:
     /// <typeparam name="index">The current position in the array.</typeparam>
     template<template<typename...> class array_template, typename helper_type_to_find, typename... other_types, typename_array_size_type helper_counter, typename_array_size_type index>
     struct find_n_appearance_helper<array_template<helper_type_to_find, other_types...>, helper_type_to_find, helper_counter, index, true> {
-        static constexpr typename_array_size_type indx = find_n_appearance_helper<array_template<other_types...>, helper_type_to_find, (helper_counter - 1), (index + 1), ((helper_counter - 1) != 0)>::indx;
+        static constexpr typename_array_size_type indx = find_n_appearance_helper<
+            array_template<other_types...>,
+            helper_type_to_find,
+            (helper_counter - 1),
+            (index + 1),
+            ((helper_counter - 1) != 0)
+        >::indx;
     };
 
     /// <summary>

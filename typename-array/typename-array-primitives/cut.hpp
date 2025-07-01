@@ -38,7 +38,11 @@ private:
     template<bool use, typename_array_size_type index, typename value_type, typename... other_types, template<typename...> class array_template>
     struct cut_helper<use, index, array_template<value_type, other_types...>> {
         static constexpr typename_array_size_type next_index = index + 1;
-        using new_array = typename cut_helper<((next_index >= start_index) && (next_index <= end_index)), next_index, array_template<other_types...>>::new_array;
+        using new_array = typename cut_helper<
+            ((next_index >= start_index) && (next_index <= end_index)),
+             next_index,
+            array_template<other_types...>
+        >::new_array;
     };
 
     /// <summary>
@@ -52,7 +56,14 @@ private:
     template<typename_array_size_type index, typename value_type, typename... other_types, template<typename...> class array_template>
     struct cut_helper<true, index, array_template<value_type, other_types...>> {
         static constexpr typename_array_size_type next_index = index + 1;
-        using new_array = typename combine<array_template<value_type>, typename cut_helper<((next_index >= start_index) && (next_index <= end_index)), next_index, array_template<other_types...>>::new_array>::new_array;
+        using new_array = typename combine<
+            array_template<value_type>,
+            typename cut_helper<
+                ((next_index >= start_index) && (next_index <= end_index)),
+                next_index,
+                array_template<other_types...>
+            >::new_array
+        >::new_array;
     };
 
 public:

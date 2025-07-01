@@ -42,7 +42,12 @@ private:
         /// <summary>
         /// Continues searching, using find to check if val exists in helper_array_to_find.
         /// </summary>
-        static constexpr typename_array_size_type indx = find_one_of_helper<array_template<other_types...>, helper_array_to_find_type, index + 1, (find<helper_array_to_find_type, value_type>::index != -1)>::indx;
+        static constexpr typename_array_size_type indx = find_one_of_helper<
+            array_template<other_types...>,
+            helper_array_to_find_type,
+            index + 1,
+            (find<helper_array_to_find_type, value_type>::index != -1)
+        >::indx;
     };
 
     /// <summary>

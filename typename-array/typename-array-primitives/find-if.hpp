@@ -32,7 +32,11 @@ private:
     /// <typeparam name="array_template">The template used for the array.</typeparam>
     template<typename_array_size_type index, typename value_type, typename... other_types, template<typename...> class array_template>
     struct find_if_helper<index, false, array_template<value_type, other_types...>> {
-        static constexpr typename_array_size_type indx = find_if_helper<index + 1, predicate_template<value_type>::value, array_template<other_types...>>::indx;
+        static constexpr typename_array_size_type indx = find_if_helper<
+            index + 1,
+            predicate_template<value_type>::value,
+            array_template<other_types...>
+        >::indx;
     };
 
     /// <summary>
