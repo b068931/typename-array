@@ -169,6 +169,7 @@
     <ClCompile Include="test-files\find-priority-tests.cpp" />
     <ClCompile Include="test-files\find-tests.cpp" />
     <ClCompile Include="test-files\get-tests.cpp" />
+    <ClCompile Include="test-files\insert-tests.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
