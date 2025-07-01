@@ -5,7 +5,7 @@
 
 template<auto val>
 struct value_wrapper {
-	static constexpr decltype(val) get_value = val;
+    static constexpr decltype(val) get_value = val;
 };
 
 #endif // TYPENAME_ARRAY_VALUE_H
