@@ -171,6 +171,10 @@
     <ClCompile Include="test-files\get-tests.cpp" />
     <ClCompile Include="test-files\insert-tests.cpp" />
     <ClCompile Include="test-files\int-to-symbols-tests.cpp" />
+    <ClCompile Include="test-files\left-to-right-tests.cpp" />
+    <ClCompile Include="test-files\replace-part-tests.cpp" />
+    <ClCompile Include="test-files\replace-tests.cpp" />
+    <ClCompile Include="test-files\sort-tests.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
