@@ -1,5 +1,5 @@
-#ifndef TYPENAME_ARRAY_STATIC_CALC_H
-#define TYPENAME_ARRAY_STATIC_CALC_H
+#ifndef TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_STATIC_CALC_H
+#define TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_STATIC_CALC_H
 
 #include "base.hpp"
 #include "value-wrapper.hpp"
@@ -415,4 +415,4 @@ public:
     static constexpr typename_array_size_type result = static_calculator_helper<value_wrapper<(find_one_of<typename_array<symbols_types...>, expressions_symbols_type>::index != -1)>, symbols_types...>::value;
 };
 
-#endif // TYPENAME_ARRAY_STATIC_CALC_H
+#endif // TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_STATIC_CALC_H
