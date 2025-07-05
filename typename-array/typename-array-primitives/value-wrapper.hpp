@@ -1,5 +1,5 @@
-#ifndef TYPENAME_ARRAY_VALUE_H
-#define TYPENAME_ARRAY_VALUE_H
+#ifndef TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_VALUE_H
+#define TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_VALUE_H
 
 #include "base.hpp"
 
@@ -16,4 +16,4 @@ struct value_wrapper {
     static constexpr decltype(value) get_value = value;
 };
 
-#endif // TYPENAME_ARRAY_VALUE_H
+#endif // TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_VALUE_H
