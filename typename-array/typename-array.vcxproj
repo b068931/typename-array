@@ -156,7 +156,6 @@
     <ClInclude Include="typename-array-primitives\value-wrapper.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="test-files\apply-tests.cpp" />
     <ClCompile Include="test-files\base-tests.cpp" />
     <ClCompile Include="test-files\check-for-allowed-types-tests.cpp" />
@@ -175,6 +174,12 @@
     <ClCompile Include="test-files\replace-part-tests.cpp" />
     <ClCompile Include="test-files\replace-tests.cpp" />
     <ClCompile Include="test-files\sort-tests.cpp" />
+    <ClCompile Include="test-files\static-calculator-tests.cpp" />
+    <ClCompile Include="test-files\static-pow-tests.cpp" />
+    <ClCompile Include="test-files\sum-tests.cpp" />
+    <ClCompile Include="test-files\symbols-to-int-tests.cpp" />
+    <ClCompile Include="test-files\typename-binder-tests.cpp" />
+    <ClCompile Include="test-files\unique-add-tests.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
