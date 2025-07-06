@@ -11,7 +11,7 @@ using typename_array_size_type = long long;
 /// <summary>
 /// Special value indicating "no position" or "not found" in typename arrays.
 /// </summary>
-constexpr typename_array_size_type npos = -1;
+inline constexpr typename_array_size_type npos = -1;
 
 /// <summary>
 /// A compile-time container for a sequence of types.
