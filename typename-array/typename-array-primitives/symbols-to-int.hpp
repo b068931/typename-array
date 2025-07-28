@@ -33,7 +33,7 @@ private:
         /// <summary>
         /// Converts the current digit and adds it to the recursively processed remainder.
         /// </summary>
-        static constexpr typename_array_size_type result = ((symbol_type::get_value - '0') * static_pow<10, sizeof...(helper_symbols_types)>::result) + symbols_to_int_helper<helper_symbols_types...>::result;
+        static constexpr typename_array_size_type result = (symbol_type::get_value - '0') * static_pow<10, sizeof...(helper_symbols_types)>::result + symbols_to_int_helper<helper_symbols_types...>::result;
         static_assert(symbol_type::get_value >= '0' && symbol_type::get_value <= '9', "All symbols must be digits (0-9).");
     };
 
@@ -46,7 +46,7 @@ private:
         /// <summary>
         /// Converts the last digit to its integer value.
         /// </summary>
-        static constexpr typename_array_size_type result = (symbol_type::get_value - '0');
+        static constexpr typename_array_size_type result = symbol_type::get_value - '0';
         static_assert(symbol_type::get_value >= '0' && symbol_type::get_value <= '9', "All symbols must be digits (0-9).");
     };
 

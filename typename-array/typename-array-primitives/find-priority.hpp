@@ -41,7 +41,7 @@ private:
         /// Determines whether to continue with the current match or try the next type.
         /// </summary>
         using trailing_result = std::conditional_t<
-            (find<helper_array_type, value_type>::index == -1),
+            find<helper_array_type, value_type>::index == -1,
             find_priority_helper<helper_array_type, array_template<other_types...>>,
             value_wrapper<find<helper_array_type, value_type>::index>
         >;

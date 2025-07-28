@@ -42,7 +42,7 @@ private:
             array_template<other_types...>,
             helper_type_to_find,
             helper_counter,
-            (index + 1),
+            index + 1,
             true
         >::indx;
     };
@@ -61,9 +61,9 @@ private:
         static constexpr typename_array_size_type indx = find_n_appearance_helper<
             array_template<other_types...>,
             helper_type_to_find,
-            (helper_counter - 1),
-            (index + 1),
-            ((helper_counter - 1) != 0)
+            helper_counter - 1,
+            index + 1,
+            helper_counter - 1 != 0
         >::indx;
     };
 
@@ -77,7 +77,7 @@ private:
     /// <typeparam name="index">The current position in the array.</typeparam>
     template<template<typename...> class array_template, typename... other_types, typename helper_type_to_find, typename_array_size_type index>
     struct find_n_appearance_helper<array_template<other_types...>, helper_type_to_find, 0, index, false> {
-        static constexpr typename_array_size_type indx = (index - 1);
+        static constexpr typename_array_size_type indx = index - 1;
     };
 
 public:

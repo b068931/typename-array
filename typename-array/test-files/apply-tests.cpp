@@ -11,7 +11,7 @@ namespace {
     template<typename T, typename_array_size_type Index>
     struct index_based_const_functor {
         using new_value = typename std::conditional<
-            (Index % 2 == 0),
+            Index % 2 == 0,
             T,          // Even indices: keep type as-is
             const T     // Odd indices: add const
         >::type;
@@ -21,10 +21,10 @@ namespace {
     template<typename T, typename_array_size_type Index>
     struct type_selector_functor {
         using new_value = typename std::conditional<
-            (Index % 3 == 0),
+            Index % 3 == 0,
             T *,                     // Index % 3 == 0: pointer
             typename std::conditional<
-            (Index % 3 == 1),
+            Index % 3 == 1,
             T &,                 // Index % 3 == 1: reference
             const T             // Index % 3 == 2: const
             >::type

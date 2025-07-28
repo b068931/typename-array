@@ -67,7 +67,7 @@ private:
         /// </summary>
         using new_array = typename combine<
             typename_array<typename helper_functor_template<value_type, index>::new_value>,
-            typename apply_helper<array_template<other_type...>, helper_functor_template, (index + 1)>::new_array
+            typename apply_helper<array_template<other_type...>, helper_functor_template, index + 1>::new_array
         >::new_array;
     };
 

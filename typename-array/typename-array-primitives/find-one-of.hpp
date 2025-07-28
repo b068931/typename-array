@@ -46,7 +46,7 @@ private:
             array_template<other_types...>,
             helper_array_to_find_type,
             index + 1,
-            (find<helper_array_to_find_type, value_type>::index != -1)
+            find<helper_array_to_find_type, value_type>::index != -1
         >::indx;
     };
 

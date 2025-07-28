@@ -67,15 +67,15 @@ private:
             /// Increments for '(', decrements for ')', otherwise no change.
             /// </summary>
             static constexpr typename_array_size_type parentheses_count_new = 
-                (character == '(')
-                    ? (parentheses_count + 1)
-                    : (character == ')') ? (parentheses_count - 1) : parentheses_count;
+                character == '('
+                    ? parentheses_count + 1
+                    : character == ')' ? parentheses_count - 1 : parentheses_count;
 
             /// <summary>
             /// The index of the matching closing parenthesis, or continues the search.
             /// Returns the current index if parentheses_count becomes zero (matching parenthesis found).
             /// </summary>
-            static constexpr typename_array_size_type indx = (parentheses_count == 0) ? index : find_last_closed_parentheses_helper<array_template<other_types...>, parentheses_count_new, (index + 1)>::indx;
+            static constexpr typename_array_size_type indx = parentheses_count == 0 ? index : find_last_closed_parentheses_helper<array_template<other_types...>, parentheses_count_new, index + 1>::indx;
         };
 
     public:
@@ -97,7 +97,7 @@ private:
         /// <summary>
         /// The right half of the expression after the operator.
         /// </summary>
-        using expression_right_half_type = typename cut<(index + 1), (array_type::size - 1), array_type>::new_array;
+        using expression_right_half_type = typename cut<index + 1, array_type::size - 1, array_type>::new_array;
         
         /// <summary>
         /// The index of the next operator in the right half, or -1 if none exists.
@@ -109,9 +109,9 @@ private:
         /// If no more operators are found, uses the end of the array.
         /// </summary>
         using true_right_half_end_type =
-        std::conditional_t<(right_half_end == -1),
-                         value_wrapper<(array_type::size - 1)>,
-                         value_wrapper<(index + right_half_end)>>;
+        std::conditional_t<right_half_end == -1,
+                         value_wrapper<array_type::size - 1>,
+                         value_wrapper<index + right_half_end>>;
                          
         /// <summary>
         /// The end index of the right operand.
@@ -121,7 +121,7 @@ private:
         /// <summary>
         /// The left half of the expression before the operator, reversed for search.
         /// </summary>
-        using expression_left_half_type = typename left_to_right<typename cut<0, (index - 1), array_type>::new_array>::new_array;
+        using expression_left_half_type = typename left_to_right<typename cut<0, index - 1, array_type>::new_array>::new_array;
         
         /// <summary>
         /// The index of the previous operator in the left half, or -1 if none exists.
@@ -133,7 +133,7 @@ private:
         /// If no previous operators are found, uses the start of the array.
         /// </summary>
         using expression_true_left_half_end_type =
-        std::conditional_t<(left_half_end == -1),
+        std::conditional_t<left_half_end == -1,
                          value_wrapper<static_cast<typename_array_size_type>(0)>,
                          value_wrapper<index - left_half_end>>;
                          
@@ -164,7 +164,7 @@ private:
         /// <summary>
         /// The right half of the expression after the opening parenthesis.
         /// </summary>
-        using right_half_of_expression = typename cut<(index + 1), (array_type::size - 1), array_type>::new_array;
+        using right_half_of_expression = typename cut<index + 1, array_type::size - 1, array_type>::new_array;
         
         /// <summary>
         /// The index of the matching closing parenthesis.
@@ -305,8 +305,8 @@ private:
         /// The result of the calculation converted back to a sequence of digit symbols.
         /// </summary>
         using calculated_symbols_type = typename int_to_symbols<perform<expression_character_type::get_value,
-            typename cut<start_type::get_value, (expression_index_type::get_value - 1), array_type>::new_array,
-            typename cut<(expression_index_type::get_value + 1), end_type::get_value, array_type>::new_array>::value
+            typename cut<start_type::get_value, expression_index_type::get_value - 1, array_type>::new_array,
+            typename cut<expression_index_type::get_value + 1, end_type::get_value, array_type>::new_array>::value
         >::array;
     };
 
@@ -356,7 +356,7 @@ private:
         /// <summary>
         /// Binder for continuing recursion if operators remain.
         /// </summary>
-        using binder_type = typename_binder<static_calculator_helper, value_wrapper<(find_one_of<new_array_type, expressions_symbols_type>::index != -1)>>;
+        using binder_type = typename_binder<static_calculator_helper, value_wrapper<find_one_of<new_array_type, expressions_symbols_type>::index != -1>>;
         
         /// <summary>
         /// The value of the expression after recursive evaluation.
@@ -395,12 +395,12 @@ private:
         /// <summary>
         /// The expression inside the parentheses.
         /// </summary>
-        using in_parentheses_type = typename cut<(start_type::get_value + 1), (end_type::get_value - 1), array_type>::new_array;
+        using in_parentheses_type = typename cut<start_type::get_value + 1, end_type::get_value - 1, array_type>::new_array;
         
         /// <summary>
         /// Binder for recursively evaluating the parenthesized expression.
         /// </summary>
-        using binder_type = typename_binder<static_calculator_helper, value_wrapper<(find_one_of<in_parentheses_type, expressions_symbols_type>::index != -1)>>;
+        using binder_type = typename_binder<static_calculator_helper, value_wrapper<find_one_of<in_parentheses_type, expressions_symbols_type>::index != -1>>;
         
         /// <summary>
         /// The result of evaluating the parenthesized expression, converted to digit symbols.
@@ -412,7 +412,7 @@ public:
     /// <summary>
     /// The final result of evaluating the mathematical expression.
     /// </summary>
-    static constexpr typename_array_size_type result = static_calculator_helper<value_wrapper<(find_one_of<typename_array<symbols_types...>, expressions_symbols_type>::index != -1)>, symbols_types...>::value;
+    static constexpr typename_array_size_type result = static_calculator_helper<value_wrapper<find_one_of<typename_array<symbols_types...>, expressions_symbols_type>::index != -1>, symbols_types...>::value;
 };
 
 #endif // TYPENAME_ARRAY_TYPENAME_ARRAY_PRIMITIVES_STATIC_CALC_H

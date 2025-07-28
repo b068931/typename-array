@@ -21,7 +21,7 @@ private:
         /// <summary>
         /// Recursively calculates the power by multiplying the base value by the result of the next lower power.
         /// </summary>
-        static constexpr typename_array_size_type result = helper_value * static_pow<helper_value, (helper_counter - 1)>::result;
+        static constexpr typename_array_size_type result = helper_value * static_pow<helper_value, helper_counter - 1>::result;
     };
 
     /// <summary>

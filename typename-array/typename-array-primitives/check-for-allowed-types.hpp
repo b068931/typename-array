@@ -57,7 +57,7 @@ private:
         static constexpr bool is_valid = check_for_allowed_types_helper<
             array_template<other_type...>, 
             helper_allowed_types, 
-            (find<helper_allowed_types, value_type>::index != npos)
+            find<helper_allowed_types, value_type>::index != npos
         >::is_valid;
     };
 

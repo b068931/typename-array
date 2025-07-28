@@ -39,7 +39,7 @@ private:
     struct cut_helper<use, index, array_template<value_type, other_types...>> {
         static constexpr typename_array_size_type next_index = index + 1;
         using new_array = typename cut_helper<
-            ((next_index >= start_index) && (next_index <= end_index)),
+            next_index >= start_index && next_index <= end_index,
              next_index,
             array_template<other_types...>
         >::new_array;
@@ -59,7 +59,7 @@ private:
         using new_array = typename combine<
             array_template<value_type>,
             typename cut_helper<
-                ((next_index >= start_index) && (next_index <= end_index)),
+                next_index >= start_index && next_index <= end_index,
                 next_index,
                 array_template<other_types...>
             >::new_array
@@ -72,7 +72,7 @@ public:
     /// Returns an empty array if start/end indices are invalid (if start > end, 
     /// start is negative, or end is beyond array bounds).
     /// </summary>
-    using new_array = typename cut_helper<(start_index == 0) && (end_index >= start_index) && (end_index < array_type::size), 0, array_type>::new_array;
+    using new_array = typename cut_helper<start_index == 0 && end_index >= start_index && end_index < array_type::size, 0, array_type>::new_array;
     static_assert(start_index >= 0, "Invalid start index: must be non-negative.");
     static_assert(end_index < array_type::size, "Invalid end index: must be within array bounds.");
 };

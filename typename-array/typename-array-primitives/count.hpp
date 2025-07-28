@@ -63,7 +63,7 @@ private:
         static constexpr typename_array_size_type counter = count_helper<
             array_template<other_types...>,
             helper_types_to_count,
-            (appearances_counter + 1)
+            appearances_counter + 1
         >::counter;
     };
 

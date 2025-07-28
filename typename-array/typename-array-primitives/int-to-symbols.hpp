@@ -24,11 +24,11 @@ private:
         /// For multi-digit numbers, recursively processes the value.
         /// </summary>
         using array = std::conditional_t<
-            (helper_value < 10),
+            helper_value < 10,
             typename_array<value_wrapper<static_cast<char>('0' + helper_value)>>,
             typename combine<
-                typename int_to_symbols<(helper_value / 10)>::array,
-                typename_array<value_wrapper<static_cast<char>('0' + (helper_value % 10))>>
+                typename int_to_symbols<helper_value / 10>::array,
+                typename_array<value_wrapper<static_cast<char>('0' + helper_value % 10)>>
             >::new_array
         >;
     };
@@ -39,7 +39,7 @@ public:
     /// Add minus sign if necessary. 
     /// </summary>
     using array = std::conditional_t<
-        (value < 0),
+        value < 0,
         typename combine<typename_array<value_wrapper<'-'>>, typename int_to_symbols_helper<-value>::array>::new_array,
         typename int_to_symbols_helper<value>::array
     >;

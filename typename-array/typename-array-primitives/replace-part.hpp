@@ -19,7 +19,7 @@ struct replace_part {
     /// the inserted type, and the section after the replaced range.
     /// </summary>
     using new_array = typename combine<
-        typename combine<typename cut<0, (start - 1), array_type>::new_array, to_place_type>::new_array,
+        typename combine<typename cut<0, start - 1, array_type>::new_array, to_place_type>::new_array,
         typename cut<end + 1, array_type::size - 1, array_type>::new_array>::new_array;
 };
 
