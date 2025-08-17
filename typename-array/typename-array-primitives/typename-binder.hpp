@@ -5,7 +5,6 @@
 #include "replace.hpp"
 #include "insert.hpp"
 #include "find.hpp"
-#include "left-to-right.hpp"
 #include "get.hpp"
 
 /// <summary>
